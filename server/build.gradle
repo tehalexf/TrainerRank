@@ -15,6 +15,7 @@ apply plugin: 'maven'
 
 repositories {
 	mavenCentral()
+	maven { url "https://jitpack.io" }
 }
 
 ext {
@@ -53,7 +54,8 @@ dependencies {
 	compile "com.h2database:h2:$h2DatabaseVersion"
 
 	compile group: 'org.springframework', name: 'spring-jdbc', version: '4.1.1.RELEASE'
-
+	compile 'com.github.Grover-c13:PokeGOAPI-Java:d1cd3f98c5'
+	compile "com.fasterxml.jackson.core:jackson-databind"
 }
 
 task wrapper(type: Wrapper) {
