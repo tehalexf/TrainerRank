@@ -1,33 +1,19 @@
-// package org.tktong.services;
+package org.tktong.services;
 
-// import java.util.concurrent.Future;
+import java.util.concurrent.Future;
 
-// import org.springframework.scheduling.annotation.Async;
-// import org.springframework.scheduling.annotation.AsyncResult;
-// import org.springframework.stereotype.Service;
-// import org.tktong.Trainer;
+import com.pokegoapi.api.PokemonGo;
 
-// @Service
-// public class UserAuthService {
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
+import org.springframework.stereotype.Service;
+import org.tktong.Trainer;
 
-//     RestTemplate restTemplate = new RestTemplate();
+@Service
+public class UserAuthService {
 
-//     @Async
-//     public Future<Trainer> findUser(String token) throws InterruptedException {
-//         System.out.println("Looking Token " + token);
-//         // User results = restTemplate.getForObject("https://api.github.com/users/" + user, User.class);
-
-
-//         return new AsyncResult<User>(results);
-//     }
-
-//     @Async
-//     public Future<Trainer> findUser(String user, String password) throws InterruptedException {
-//         System.out.println("Looking up " + user);
-//         // User results = restTemplate.getForObject("https://api.github.com/users/" + user, User.class);
-
-
-//         return new AsyncResult<Trainer>(results);
-//     }
-
-// }
+    @Async
+    public void findUser(PokemonGo go) throws InterruptedException {
+     
+    }
+}

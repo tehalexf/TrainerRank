@@ -10,8 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.tktong.Result;
 import javax.servlet.http.HttpSession;
 
-// import org.tktong.services.UserAuthService;
+import org.tktong.services.UserAuthService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 
 import POGOProtos.Enums.PokemonIdOuterClass;
 import POGOProtos.Networking.Responses.ReleasePokemonResponseOuterClass;
@@ -28,8 +29,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class TrainerRankController {
 
-	// @Autowired
-	// UserAuthService uas;
+	@Autowired
+	UserAuthService uas;
 
 
 
