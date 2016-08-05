@@ -56,8 +56,14 @@ dependencies {
 	compile group: 'org.springframework', name: 'spring-jdbc', version: '4.1.1.RELEASE'
 	compile 'com.github.Grover-c13:PokeGOAPI-Java:d1cd3f98c5'
 	compile "com.fasterxml.jackson.core:jackson-databind"
+	compile 'net.sourceforge.nekohtml:nekohtml:1.9.21'
+	compile("org.springframework.boot:spring-boot-devtools")
 }
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.14'
+}
+
+bootRun {
+    addResources = true
 }
