@@ -31,72 +31,6 @@ public class TrainerRankController {
 	// @Autowired
 	// UserAuthService uas;
 
-	@RequestMapping(value = "/api/loginGoogle" , method = RequestMethod.GET)
-	public ModelAndView clientLoginGoogle(@RequestParam(value = "token", required = true) String token) {
-		OkHttpClient httpClient;
-		PokemonGo go;
-
-		ModelAndView mav = new ModelAndView("hello");
-
-		mav.addObject("title", "Spring Security Login Form - Cuck Meeeeeeeee");
-		mav.addObject("message", "This is default page!");
-
-		try {
-			httpClient = new OkHttpClient();
-			GoogleUserCredentialProvider provider = new GoogleUserCredentialProvider(httpClient);
-			provider.login(token);
-			go = new PokemonGo(provider, httpClient);
-		} catch (LoginFailedException e) {
-			System.out.println(e);
-		} catch (RemoteServerException e) {
-			System.out.println(e);
-		}
-
-
-		mav.addObject("title", "Spring Security Login Form - Cuck Meeeeeeeee");
-		mav.addObject("message", "This is default page!");
-		return mav;
-	}
-
-
-	@RequestMapping(value = "/one" , method = RequestMethod.GET)
-	public ModelAndView defaultPage() {
-		ModelAndView mav = new ModelAndView("login");
-
-		mav.addObject("title", "Spring Security Login Form - Database Authentication");
-		mav.addObject("message", "This is default page!");
-		return mav;
-
-	}
-
-	@RequestMapping(value = "/admin1**", method = RequestMethod.GET)
-	public ModelAndView adminPage() {
-
-		ModelAndView model = new ModelAndView();
-		// model.addAttribute("title", "Spring Security Login Form - Database Authentication");
-		// model.addAttribute("message", "This page is for ROLE_ADMIN only!");
-		model.setViewName("admin");
-		return model;
-
-	}
-
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
-	                          @RequestParam(value = "logout", required = false) String logout) {
-
-		ModelAndView model = new ModelAndView();
-
-
-		if (error != null) {
-			model.addObject("error", "Invalid username and password!");
-			model.setViewName("login");
-		} else if (logout != null) {
-			model.addObject("msg", "You've been logged out successfully.");
-			model.setViewName("login");
-		}
-		return model;
-
-	}
 
 
 
@@ -141,8 +75,6 @@ public class TrainerRankController {
 			return mav;
 		}
 
-
-
 		session.setAttribute("user", authUsername);
 
 
@@ -153,6 +85,47 @@ public class TrainerRankController {
 
 		return mav;
 	}
+
+	@RequestMapping(value = "/one" , method = RequestMethod.GET)
+	public ModelAndView defaultPage() {
+		ModelAndView mav = new ModelAndView("login");
+
+		mav.addObject("title", "Spring Security Login Form - Database Authentication");
+		mav.addObject("message", "This is default page!");
+		return mav;
+
+	}
+
+	@RequestMapping(value = "/admin1**", method = RequestMethod.GET)
+	public ModelAndView adminPage() {
+
+		ModelAndView model = new ModelAndView();
+		// model.addAttribute("title", "Spring Security Login Form - Database Authentication");
+		// model.addAttribute("message", "This page is for ROLE_ADMIN only!");
+		model.setViewName("admin");
+		return model;
+
+	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
+	                          @RequestParam(value = "logout", required = false) String logout) {
+
+		ModelAndView model = new ModelAndView();
+
+
+		if (error != null) {
+			model.addObject("error", "Invalid username and password!");
+			model.setViewName("login");
+		} else if (logout != null) {
+			model.addObject("msg", "You've been logged out successfully.");
+			model.setViewName("login");
+		}
+		return model;
+
+	}
+
+
 
 
 	// @RequestMapping(value = "/loginEndpoint", method = RequestMethod.GET, produces = "application/json")
