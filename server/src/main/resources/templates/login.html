@@ -1,77 +1,86 @@
-
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
 <html>
 <head>
-<title>Login Page</title>
-<style>
-.error {
-	padding: 15px;
-	margin-bottom: 20px;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	color: #a94442;
-	background-color: #f2dede;
-	border-color: #ebccd1;
-}
-
-.msg {
-	padding: 15px;
-	margin-bottom: 20px;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	color: #31708f;
-	background-color: #d9edf7;
-	border-color: #bce8f1;
-}
-
-#login-box {
-	width: 300px;
-	padding: 20px;
-	margin: 100px auto;
-	background: #fff;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border: 1px solid #000;
-}
-</style>
+<title>Trainer Rank | Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Trendy Tab Login Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="../static/css/login.css"
+          th:href="@{css/login.css}" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css' /><!--web font-->
+<!-- //web font -->
+<!-- js -->
+<script src="js/jquery.min.js"></script>
+<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+<!-- //js -->
 </head>
-<body onload='document.loginForm.username.focus();'>
-
-	<h1>Spring Security Login Form (Database Authentication)</h1>
-
-	<div id="login-box">
-
-		<h2>Login with Username and Password</h2>
-
-		
-			<div th:if="${error != null}" th:text="${error}" class="error"></div>
-		
-		
-			<div th:if="${msg != null}" th:text="${msg}" class="msg"></div>
-		
-
-		<form name='loginForm'
-		  action="/login" method='POST'>
-
-		<table>
-			<tr>
-				<td>User:</td>
-				<td><input type='text' name='username' /></td>
-			</tr>
-			<tr>
-				<td>Password:</td>
-				<td><input type='password' name='password' /></td>
-			</tr>
-			<tr>
-				<td colspan='2'><input name="submit" type="submit"
-				  value="submit" /></td>
-			</tr>
-		  </table>
-
-		  <input type="hidden" th:name="${_csrf.parameterName}"
-			th:value="${_csrf.token}" />
-
-		</form>
+<body>
+	<!-- main -->
+	<div class="main">
+		<h1>TRAINER RANKz</h1>
+		<div class="login-form">
+			<div class="sap_tabs w3ls-tabs">
+				<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+					<ul class="resp-tabs-list">
+						<li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Google</span></li> 
+						<li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><label>/</label><span>Pokemon Trainer</span></li>
+					</ul>	
+					<div class="clear"> </div>
+					<div class="resp-tabs-container">
+						<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+							<div class="login-agileits-top"> 
+								<form action="/loginEndpoint" method="post">
+									<p>Auhtorization Token </p>
+									<input type="text" name="User Name" required=""/>
+									<p style="text-align: center"><a style="color: #fff" href="#">Get Auth Token</a></p>
+									<br><br>
+									<input type="submit" value="Get Profile"/>
+								</form>  
+							</div>
+						</div> 
+						<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+							<div class="login-agileits-top sign-up"> 
+								<form action="#" method="post">
+									<p>User Name </p>
+									<input type="text" name="User Name" required=""/>
+									<p>Password</p>
+									<input type="password" name="Password" required=""/>	
+									<br>
+									<input type="submit" value="Get Profile"/>
+								</form>   
+							</div>
+						</div>
+					</div>							
+				</div>	 
+			</div> 
+			<!-- ResponsiveTabs js -->
+			<script type="text/javascript">
+				$(document).ready(function () {
+					$('#horizontalTab').easyResponsiveTabs({
+						type: 'default', //Types: default, vertical, accordion           
+						width: 'auto', //auto or any width like 600px
+						fit: true   // 100% fit in a container
+					});
+				});
+			</script>
+			<!-- //ResponsiveTabs js -->
+		</div>	
+	</div>	
+	<!-- //main -->
+	<!-- copyright -->
+	<div style="display: none" class="copyright">
+		<p> © 2016 Trendy Tab Login Form . All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
 	</div>
-
+	<!-- //copyright --> 
 </body>
 </html>

@@ -10,12 +10,12 @@ public class SandboxController {
 	@Autowired
 	private SandboxService sandboxService;
 
-	@RequestMapping(value = "/abcd*")
+	@RequestMapping(value = "/notused")
 	public String sandbox(Model model) {
 		return "index";
 	}
 
-	@RequestMapping(value = "/admin/*")
+	@RequestMapping(value = "/notused/admin/*")
 	public String sandbox2(Model model) {
 		return "index";
 	}
