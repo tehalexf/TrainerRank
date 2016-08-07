@@ -2,10 +2,10 @@
 ## On Committing
 1. Each commit must reference an issue in the following format:
 ```
-#<issue number> <commit message>
+#<JIRA Issue Number> <commit message>
 ```
-For example, for this commit, I am working on issue [\#2](https://github.com/tehalexf/TrainerRank/issues/2). My commit message will look like this:
+For example, for this commit, I am working JIRA issue TR-20. My commit message will look like this:
 ```
-#2 Add rules for committing on github
+TR-20 Update rules on committing
 ```
 **If an issue does not exist for your commit, create one.**
