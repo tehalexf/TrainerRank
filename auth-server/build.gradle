@@ -16,6 +16,7 @@ apply plugin: 'maven'
 repositories {
 	mavenCentral()
 	maven { url "https://jitpack.io" }
+	jcenter()
 }
 
 ext {
@@ -26,10 +27,10 @@ ext {
 }
 
 dependencies {
-	compile files('D:/GitHub/Spring-Boot-MVC-Sandbox/PokeGOAPI-Java/library/build/libs/PokeGOAPI-library-all-0.3.0.jar')
+	// compile files('D:/GitHub/Spring-Boot-MVC-Sandbox/PokeGOAPI-Java/library/build/libs/PokeGOAPI-library-all-0.3.0.jar')
 	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
 	compile group: 'org.springframework.security', name: 'spring-security-core', version: '4.1.1.RELEASE'
-
+	compile 'com.pokegoapi:PokeGOAPI-library:0.4.0'
 	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-web
 	compile group: 'org.springframework.security', name: 'spring-security-web', version: '4.1.1.RELEASE'
 

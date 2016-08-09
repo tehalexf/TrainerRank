@@ -1,0 +1,70 @@
+:compileJava
+:processResources
+:classes
+:findMainClass
+:bootRun
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.3.5.RELEASE)
+
+2016-08-09 13:12:45.194  INFO 10368 --- [  restartedMain] org.tktong.Application                   : Starting Application on GWC_020 with PID 10368 (C:\GH\TrainerRank\auth-server\build\classes\main started by GwC User in C:\GH\TrainerRank\auth-server)
+2016-08-09 13:12:45.199  INFO 10368 --- [  restartedMain] org.tktong.Application                   : No active profile set, falling back to default profiles: default
+2016-08-09 13:12:45.274  INFO 10368 --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@668365a6: startup date [Tue Aug 09 13:12:45 PDT 2016]; root of context hierarchy
+2016-08-09 13:12:48.247  INFO 10368 --- [  restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bef84290] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2016-08-09 13:12:49.081  INFO 10368 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2016-08-09 13:12:49.106  INFO 10368 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service Tomcat
+2016-08-09 13:12:49.108  INFO 10368 --- [  restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.0.33
+2016-08-09 13:12:49.274  INFO 10368 --- [ost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2016-08-09 13:12:49.274  INFO 10368 --- [ost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4003 ms
+2016-08-09 13:12:49.844  INFO 10368 --- [ost-startStop-1] o.s.b.c.embedded.FilterRegistrationBean  : Mapping filter: 'characterEncodingFilter' to: [/*]
+2016-08-09 13:12:49.845  INFO 10368 --- [ost-startStop-1] o.s.b.c.embedded.FilterRegistrationBean  : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2016-08-09 13:12:49.846  INFO 10368 --- [ost-startStop-1] o.s.b.c.embedded.FilterRegistrationBean  : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2016-08-09 13:12:49.846  INFO 10368 --- [ost-startStop-1] o.s.b.c.embedded.FilterRegistrationBean  : Mapping filter: 'requestContextFilter' to: [/*]
+2016-08-09 13:12:49.864  INFO 10368 --- [ost-startStop-1] .e.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2016-08-09 13:12:49.864  INFO 10368 --- [ost-startStop-1] o.s.b.c.e.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2016-08-09 13:12:49.866  INFO 10368 --- [ost-startStop-1] o.s.b.c.e.ServletRegistrationBean        : Mapping servlet: 'webServlet' to [/h2-console/*]
+2016-08-09 13:12:50.179  INFO 10368 --- [ost-startStop-1] o.s.j.d.DriverManagerDataSource          : Loaded JDBC driver: com.mysql.jdbc.Driver
+2016-08-09 13:12:50.548  INFO 10368 --- [ost-startStop-1] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52469867, org.springframework.security.web.context.SecurityContextPersistenceFilter@2e86bee4, org.springframework.security.web.header.HeaderWriterFilter@75dda5ea, org.springframework.security.web.csrf.CsrfFilter@1ac0806f, org.springframework.security.web.authentication.logout.LogoutFilter@3f26dfa7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@23756955, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2802f6c3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ccb517, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a9b5f41, org.springframework.security.web.session.SessionManagementFilter@1752518f, org.springframework.security.web.access.ExceptionTranslationFilter@5461cee3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3e52115d]
+2016-08-09 13:12:50.575  INFO 10368 --- [ost-startStop-1] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/h2-console/**'], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1d9090a4, org.springframework.security.web.context.SecurityContextPersistenceFilter@4ba3fe39, org.springframework.security.web.header.HeaderWriterFilter@7cdd6333, org.springframework.security.web.authentication.logout.LogoutFilter@5c260f08, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3c2b7674, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1ef6c2a9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@9a5eebf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@67e7f1bc, org.springframework.security.web.session.SessionManagementFilter@710188, org.springframework.security.web.access.ExceptionTranslationFilter@246e2dc1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1b8f4994]
+2016-08-09 13:12:51.080  INFO 10368 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2016-08-09 13:12:51.110  INFO 10368 --- [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2016-08-09 13:12:51.222  INFO 10368 --- [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {4.3.11.Final}
+2016-08-09 13:12:51.222  INFO 10368 --- [  restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2016-08-09 13:12:51.222  INFO 10368 --- [  restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2016-08-09 13:12:51.417  INFO 10368 --- [  restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2016-08-09 13:12:51.510  INFO 10368 --- [  restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-08-09 13:12:51.989  WARN 10368 --- [  restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): org.tktong.datamodels.Candies
+2016-08-09 13:12:51.989  WARN 10368 --- [  restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): org.tktong.datamodels.Candies
+2016-08-09 13:12:51.999  INFO 10368 --- [  restartedMain] o.h.h.i.ast.ASTQueryTranslatorFactory    : HHH000397: Using ASTQueryTranslatorFactory
+2016-08-09 13:12:53.212  INFO 10368 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@668365a6: startup date [Tue Aug 09 13:12:45 PDT 2016]; root of context hierarchy
+2016-08-09 13:12:53.299  INFO 10368 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/loginEndpoint],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView org.tktong.controllers.TrainerRankController.loginEndpoint(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.servlet.http.HttpSession)
+2016-08-09 13:12:53.299  INFO 10368 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/one],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView org.tktong.controllers.TrainerRankController.defaultPage()
+2016-08-09 13:12:53.299  INFO 10368 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin1**],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView org.tktong.controllers.TrainerRankController.adminPage()
+2016-08-09 13:12:53.299  INFO 10368 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView org.tktong.controllers.TrainerRankController.login(java.lang.String,java.lang.String)
+2016-08-09 13:12:53.299  INFO 10368 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/403],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView org.tktong.controllers.TrainerRankController.accesssDenied()
+2016-08-09 13:12:53.299  INFO 10368 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/pokemon]}" onto public org.springframework.web.servlet.ModelAndView org.tktong.PokemonController.getPokemon()
+2016-08-09 13:12:53.299  INFO 10368 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/{id}],produces=[application/json]}" onto public org.tktong.Result org.tktong.RESTController.getUser(java.lang.Long,java.lang.String)
+2016-08-09 13:12:53.299  INFO 10368 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/notused/admin/*]}" onto public java.lang.String org.tktong.SandboxController.sandbox2(org.springframework.ui.Model)
+2016-08-09 13:12:53.299  INFO 10368 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/notused]}" onto public java.lang.String org.tktong.SandboxController.sandbox(org.springframework.ui.Model)
+2016-08-09 13:12:53.309  INFO 10368 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/superhero]}" onto public org.springframework.web.servlet.ModelAndView org.tktong.SuperheroController.getSuperheroes()
+2016-08-09 13:12:53.309  INFO 10368 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2016-08-09 13:12:53.309  INFO 10368 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2016-08-09 13:12:53.372  INFO 10368 --- [  restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-08-09 13:12:53.372  INFO 10368 --- [  restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-08-09 13:12:53.430  INFO 10368 --- [  restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2016-08-09 13:12:53.932  INFO 10368 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2016-08-09 13:12:54.021  INFO 10368 --- [  restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2016-08-09 13:12:54.110  INFO 10368 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2016-08-09 13:12:54.120  INFO 10368 --- [  restartedMain] org.tktong.Application                   : Started Application in 9.348 seconds (JVM running for 10.007)
+2016-08-09 13:12:54.557  INFO 10368 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2016-08-09 13:12:54.557  INFO 10368 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2016-08-09 13:12:54.610  INFO 10368 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 53 ms
+:bootRun FAILED
+Terminate batch job (Y/N)? 
