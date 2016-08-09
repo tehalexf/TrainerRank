@@ -1,0 +1,165 @@
+package org.tktong.controllers;
+
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView;
+import org.tktong.Result;
+import javax.servlet.http.HttpSession;
+
+import org.tktong.services.UserAuthService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import POGOProtos.Enums.PokemonIdOuterClass;
+import POGOProtos.Networking.Responses.ReleasePokemonResponseOuterClass;
+import com.pokegoapi.api.PokemonGo;
+import com.pokegoapi.api.pokemon.Pokemon;
+import com.pokegoapi.auth.GoogleUserCredentialProvider;
+import com.pokegoapi.auth.PtcCredentialProvider;
+import com.pokegoapi.exceptions.LoginFailedException;
+import com.pokegoapi.exceptions.RemoteServerException;
+import com.pokegoapi.util.Log;
+import okhttp3.OkHttpClient;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
+public class TrainerRankController {
+
+	@Autowired
+	UserAuthService uas;
+
+
+
+
+	@RequestMapping(value = "/loginEndpoint", method = RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView loginEndpoint(@RequestParam(value = "destination", required = false) String destination, @RequestParam(value = "username", required = false) String username, @RequestParam(value = "password", required = false) String password, @RequestParam(value = "token", required = false) String token, @RequestHeader("Accept") String acceptHeader, HttpSession session) {
+
+		OkHttpClient httpClient;
+		PokemonGo go;
+		System.out.println(username);
+		System.out.println(password);
+		System.out.println(token);
+		ModelAndView mav = new ModelAndView();
+		String authUsername;
+		try {
+			if (token == null && username != null && password != null) {
+				httpClient = new OkHttpClient();
+				go = new PokemonGo(new PtcCredentialProvider(httpClient, username, password), httpClient);
+			} else if (username == null && password == null && token != null) {
+				httpClient = new OkHttpClient();
+				GoogleUserCredentialProvider provider = new GoogleUserCredentialProvider(httpClient);
+				provider.login(token);
+				go = new PokemonGo(provider, httpClient);
+			} else {
+				mav.addObject("error", "Invalid login details.");
+				mav.addObject("destination", destination);
+				mav.setViewName("login");
+				return mav;
+			}
+			authUsername = go.getPlayerProfile().getPlayerData().getUsername();
+		} catch (LoginFailedException e) {
+			System.out.println(e);
+			mav.setViewName("login");
+			mav.addObject("error", "Invalid login details.");
+			mav.addObject("destination", destination);
+			return mav;
+		} catch (RemoteServerException e) {
+			System.out.println(e);
+			mav.setViewName("login");
+			mav.addObject("error", "Invalid login details.");
+			mav.addObject("destination", destination);
+			return mav;
+		}
+
+		session.setAttribute("user", authUsername);
+
+
+		if (destination != null)
+			mav.setViewName(destination);
+		else
+			mav.setViewName("index");
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/one" , method = RequestMethod.GET)
+	public ModelAndView defaultPage() {
+		ModelAndView mav = new ModelAndView("login");
+
+		mav.addObject("title", "Spring Security Login Form - Database Authentication");
+		mav.addObject("message", "This is default page!");
+		return mav;
+
+	}
+
+	@RequestMapping(value = "/admin1**", method = RequestMethod.GET)
+	public ModelAndView adminPage() {
+
+		ModelAndView model = new ModelAndView();
+		// model.addAttribute("title", "Spring Security Login Form - Database Authentication");
+		// model.addAttribute("message", "This page is for ROLE_ADMIN only!");
+		model.setViewName("admin");
+		return model;
+
+	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
+	                          @RequestParam(value = "logout", required = false) String logout) {
+
+		ModelAndView model = new ModelAndView();
+
+
+		if (error != null) {
+			model.addObject("error", "Invalid username and password!");
+			model.setViewName("login");
+		} else if (logout != null) {
+			model.addObject("msg", "You've been logged out successfully.");
+			model.setViewName("login");
+		}
+		return model;
+
+	}
+
+
+
+
+	// @RequestMapping(value = "/loginEndpoint", method = RequestMethod.GET, produces = "application/json")
+	// @ResponseBody
+	// public Result loginEndpoint(@RequestParam(value = "username", required = false) String username, @RequestParam(value = "password", required = false) String password, @RequestParam(value = "token", required = false) String token, @RequestHeader("Accept") String acceptHeader, HttpSession session) {
+
+	// 	Result r = new Result();
+	// 	r.setStatus(true);
+	// 	r.setMessage("Valid user " + username + " and " + password);
+
+	// 	session.setAttribute("user", username);
+
+	// 	return r;
+	// }
+
+
+
+	//for 403 access denied page
+	@RequestMapping(value = "/403", method = RequestMethod.GET)
+	public ModelAndView accesssDenied() {
+
+		ModelAndView model = new ModelAndView();
+
+		//check if user is login
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (!(auth instanceof AnonymousAuthenticationToken)) {
+			UserDetails userDetail = (UserDetails) auth.getPrincipal();
+			model.addObject("username", userDetail.getUsername());
+		}
+
+		model.setViewName("403");
+		return model;
+
+	}
+
+}

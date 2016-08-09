@@ -26,6 +26,7 @@ ext {
 }
 
 dependencies {
+	compile files('D:/GitHub/Spring-Boot-MVC-Sandbox/PokeGOAPI-Java/library/build/libs/PokeGOAPI-library-all-0.3.0.jar')
 	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
 	compile group: 'org.springframework.security', name: 'spring-security-core', version: '4.1.1.RELEASE'
 
@@ -54,10 +55,13 @@ dependencies {
 	compile "com.h2database:h2:$h2DatabaseVersion"
 
 	compile group: 'org.springframework', name: 'spring-jdbc', version: '4.1.1.RELEASE'
-	compile 'com.github.Grover-c13:PokeGOAPI-Java:d1cd3f98c5'
+	//compile 'com.github.Grover-c13:PokeGOAPI-Java:d1cd3f98c5'
+	//compile 'com.github.svarzee:gpsoauth-java:v0.3.0'
+	//compile 'com.github.Grover-c13:PokeGOAPI-Java:Development-SNAPSHOT'
 	compile "com.fasterxml.jackson.core:jackson-databind"
 	compile 'net.sourceforge.nekohtml:nekohtml:1.9.21'
 	compile("org.springframework.boot:spring-boot-devtools")
+	compileOnly "org.projectlombok:lombok:1.16.10"
 }
 
 task wrapper(type: Wrapper) {
