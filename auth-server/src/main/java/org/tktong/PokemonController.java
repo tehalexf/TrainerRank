@@ -13,7 +13,7 @@ public class PokemonController {
 
     @RequestMapping
     public ModelAndView getPokemon() {
-    	System.out.println(repository.findAll());
+    	// System.out.println(repository.findAll());
         return new ModelAndView("pokemon", "pokemons", repository.findAll());
     }
 }

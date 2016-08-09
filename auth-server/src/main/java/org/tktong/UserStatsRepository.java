@@ -6,4 +6,5 @@ import java.util.*;
 
 
 public interface UserStatsRepository extends JpaRepository<UserStats, Long> {
+	UserStats findByUsername(String username);
 }

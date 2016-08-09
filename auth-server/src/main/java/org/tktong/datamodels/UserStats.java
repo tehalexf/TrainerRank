@@ -3,11 +3,65 @@ package org.tktong.datamodels;
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.*;
 
 @Entity
 @Table(name = "userstats")
 public class UserStats
 {
+
+	public UserStats(String username, int user_id, int team, int skin, 
+		int hair, int eyes, int hat, int shirt, int exp, int km_walked, 
+		int pokemon_encountered, int pokedex_entries, int level, 
+		int pokemons_captured, int evolutions, int poke_stop_visits, 
+		int pokeballs_thrown, int eggs_hatched, int big_magikarp_caught, 
+		int battle_attack_won, int battle_attack_total, 
+		int battle_defended_won, int battle_training_won, 
+		int battle_training_total, int prestige_raised_total, 
+		int prestige_dropped_total, int pokemon_deployed, 
+		int small_rattata_caught, String custom_icon, 
+		int coins, int stardust) {
+
+		this.username = username;
+		this.user_id = user_id;
+		this.team = team;
+		this.skin = skin;
+		this.hair = hair;
+		this.eyes = eyes;
+		this.hat = hat;
+		this.shirt = shirt;
+		this.exp = exp;
+		this.km_walked = km_walked;
+		this.pokemon_encountered = pokemon_encountered;
+		this.pokedex_entries = pokedex_entries;
+		this.level = level;
+		this.pokemons_captured = pokemons_captured;
+		this.evolutions = evolutions;
+		this.poke_stop_visits = poke_stop_visits;
+		this.pokeballs_thrown = pokeballs_thrown;
+		this.eggs_hatched = eggs_hatched;
+		this.big_magikarp_caught = big_magikarp_caught;
+		this.battle_attack_won = battle_attack_won;
+		this.battle_attack_total = battle_attack_total;
+		this.battle_defended_won = battle_defended_won;
+		this.battle_training_won = battle_training_won;
+		this.battle_training_total = battle_training_total;
+		this.prestige_raised_total = prestige_raised_total;
+		this.prestige_dropped_total = prestige_dropped_total;
+		this.pokemon_deployed = pokemon_deployed;
+		this.small_rattata_caught = small_rattata_caught;
+		this.custom_icon = custom_icon;
+		this.coins = coins;
+		this.stardust = stardust;
+	} 
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@Setter @Getter
+	private Set<Pokemon> pokemon;
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@Setter @Getter
+	private Set<Candies> candies;
 
 	@Getter @Setter
     @Column(name = "username")
@@ -26,7 +80,6 @@ public class UserStats
  	@Getter @Setter
     @Column(name = "skin")
     private int skin;
-
 
     @Getter @Setter
     @Column(name = "hair")

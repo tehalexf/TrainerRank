@@ -18,7 +18,7 @@
     <tr th:each="hero, status : ${pokemons}">
       <td th:text="${status.count}">1</td>
       <td th:text="${hero.game_id}">Hero name</td>
-      <td th:text="${hero.cp + ' ' + hero.id}">Real name</td>
+      <td th:text="${hero.id + ' ' + hero.cp}">Real name</td>
       <td>
         <span class="glyphicon glyphicon-ok" th:if="${hero.favorite}"></span>
         <span class="glyphicon glyphicon-remove" th:unless="${hero.favorite}"></span>

@@ -11,12 +11,12 @@ import java.io.Serializable;
 @IdClass(Candies.class)
 public class Candies implements Serializable
 {
-	String username;
 
     @Id
-    @Getter @Setter
-    @Column(name = "owner_id")
-    private int owner_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id")
+    @Setter @Getter
+    private UserStats user;
  	
     @Id
     @Getter @Setter

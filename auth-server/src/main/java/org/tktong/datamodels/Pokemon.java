@@ -3,10 +3,17 @@ package org.tktong.datamodels;
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import java.math.BigInteger;
 
 @Entity
 @Table(name = "pokemon")
 public class Pokemon {
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id")
+    @Setter @Getter
+    private UserStats user;
 
     @Id
     @Getter
@@ -20,10 +27,6 @@ public class Pokemon {
     @Getter @Setter
     @Column(name = "cp")
     private int cp;
-
-    @Getter @Setter
-    @Column(name = "owner_id")
-    private int ownerId;
     
     @Getter @Setter
     @Column(name = "favorite")
@@ -50,8 +53,8 @@ public class Pokemon {
     private int iv_sta;
 
     @Getter @Setter
-    @Column(name = "cpMultiplier")
-    private double cpMultiplier;
+    @Column(name = "cp_multiplier")
+    private double cp_multiplier;
 
     @Getter @Setter
     @Column(name = "updated")
@@ -103,7 +106,7 @@ public class Pokemon {
 
     @Getter @Setter
     @Column(name = "captured_cell_id")
-    private int captured_cell_id;
+    private BigInteger captured_cell_id;
 
     @Getter @Setter
     @Column(name = "battles_attacked")
@@ -119,7 +122,7 @@ public class Pokemon {
 
     @Getter @Setter
     @Column(name = "creation_time_ms")
-    private int creation_time_ms;
+    private BigInteger creation_time_ms;
 
     @Getter @Setter
     @Column(name = "num_upgrades")
