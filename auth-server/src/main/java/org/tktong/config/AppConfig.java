@@ -8,7 +8,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
-
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 @Configuration
 @ComponentScan({ "org.tktong.*" })
@@ -25,6 +25,15 @@ public class AppConfig {
 	    return driverManagerDataSource;
 	}
 	
+	@Bean
+	public ThreadPoolTaskExecutor taskExecutor() {
+		ThreadPoolTaskExecutor pool = new ThreadPoolTaskExecutor();
+		pool.setCorePoolSize(5);
+		pool.setMaxPoolSize(20);
+		pool.setWaitForTasksToCompleteOnShutdown(true);
+		return pool;
+	}
+
 	// @Bean
 	// public InternalResourceViewResolver viewResolver() {
 	//     InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();

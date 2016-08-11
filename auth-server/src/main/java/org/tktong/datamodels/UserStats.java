@@ -4,80 +4,63 @@ import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.*;
+import java.math.BigInteger;
 
 @Entity
 @Table(name = "userstats")
-public class UserStats
-{
+public class UserStats {
 
-	public UserStats(String username, int user_id, int team, int skin, 
-		int hair, int eyes, int hat, int shirt, int exp, int km_walked, 
-		int pokemon_encountered, int pokedex_entries, int level, 
-		int pokemons_captured, int evolutions, int poke_stop_visits, 
-		int pokeballs_thrown, int eggs_hatched, int big_magikarp_caught, 
-		int battle_attack_won, int battle_attack_total, 
-		int battle_defended_won, int battle_training_won, 
-		int battle_training_total, int prestige_raised_total, 
-		int prestige_dropped_total, int pokemon_deployed, 
-		int small_rattata_caught, String custom_icon, 
-		int coins, int stardust) {
+    public UserStats() {
+    }
 
-		this.username = username;
-		this.user_id = user_id;
-		this.team = team;
-		this.skin = skin;
-		this.hair = hair;
-		this.eyes = eyes;
-		this.hat = hat;
-		this.shirt = shirt;
-		this.exp = exp;
-		this.km_walked = km_walked;
-		this.pokemon_encountered = pokemon_encountered;
-		this.pokedex_entries = pokedex_entries;
-		this.level = level;
-		this.pokemons_captured = pokemons_captured;
-		this.evolutions = evolutions;
-		this.poke_stop_visits = poke_stop_visits;
-		this.pokeballs_thrown = pokeballs_thrown;
-		this.eggs_hatched = eggs_hatched;
-		this.big_magikarp_caught = big_magikarp_caught;
-		this.battle_attack_won = battle_attack_won;
-		this.battle_attack_total = battle_attack_total;
-		this.battle_defended_won = battle_defended_won;
-		this.battle_training_won = battle_training_won;
-		this.battle_training_total = battle_training_total;
-		this.prestige_raised_total = prestige_raised_total;
-		this.prestige_dropped_total = prestige_dropped_total;
-		this.pokemon_deployed = pokemon_deployed;
-		this.small_rattata_caught = small_rattata_caught;
-		this.custom_icon = custom_icon;
-		this.coins = coins;
-		this.stardust = stardust;
-	} 
+    public UserStats(String username) {
+        this.username = username;
+    }
 
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@Setter @Getter
-	private Set<Pokemon> pokemon;
+    public UserStats(int user_id) {
+        this.user_id = user_id;
+    }
 
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@Setter @Getter
-	private Set<Candies> candies;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Setter @Getter
+    private Set<PokemonObj> pokemon;
 
-	@Getter @Setter
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Setter @Getter
+    private Set<Candies> candies;
+
+    @Getter @Setter
     @Column(name = "username")
-	private String username;
+    private String username;
 
-	@Id
+    @Id
     @Getter
-	@GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private int user_id;
 
     @Getter @Setter
     @Column(name = "team")
     private int team;
- 	
- 	@Getter @Setter
+
+    @Getter @Setter
+    @Column(name = "gender")
+    private int gender;
+
+    @Getter @Setter
+    @Column(name = "shoes")
+    private int shoes;
+
+    @Getter @Setter
+    @Column(name = "backpack")
+    private int backpack;
+
+    @Getter @Setter
+    @Column(name = "pants")
+    private int pants;
+
+
+    @Getter @Setter
     @Column(name = "skin")
     private int skin;
 
@@ -99,11 +82,11 @@ public class UserStats
 
     @Getter @Setter
     @Column(name = "exp")
-    private int exp;
+    private long exp;
 
     @Getter @Setter
     @Column(name = "km_walked")
-    private int km_walked;
+    private float km_walked;
 
     @Getter @Setter
     @Column(name = "pokemon_encountered")
@@ -195,4 +178,25 @@ public class UserStats
     @Getter @Setter
     @Column(name = "stardust")
     private int stardust;
+
+    @Getter @Setter
+    @Column(name = "next_collect_timestamp_ms")
+    private long next_collect_timestamp_ms;
+
+    @Getter @Setter
+    @Column(name = "next_defender_bonus_collect_timestamp_ms")
+    private long next_defender_bonus_collect_timestamp_ms;
+
+    @Getter @Setter
+    @Column(name = "poke_storage")
+    private int poke_storage;
+
+    @Getter @Setter
+    @Column(name = "item_storage")
+    private int item_storage;
+
+    @Getter @Setter
+    @Column(name = "creation_timestamp_ms")
+    private long creation_timestamp_ms;
+
 }

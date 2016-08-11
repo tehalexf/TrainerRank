@@ -8,12 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/pokemon")
 public class PokemonController {
-    @Autowired
-    private PokemonRepository repository;
+	@Autowired
+	private PokemonRepository repository;
 
-    @RequestMapping
-    public ModelAndView getPokemon() {
-    	// System.out.println(repository.findAll());
-        return new ModelAndView("pokemon", "pokemons", repository.findAll());
-    }
+	@RequestMapping
+	public ModelAndView getPokemon() {
+		// System.out.println(repository.findAll());
+		return new ModelAndView("pokemon", "pokemons", repository.findAll());
+	}
 }

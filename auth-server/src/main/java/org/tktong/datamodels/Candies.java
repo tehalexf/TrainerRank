@@ -9,15 +9,28 @@ import java.io.Serializable;
 @Entity
 @Table(name = "candies")
 @IdClass(Candies.class)
-public class Candies implements Serializable
-{
+public class Candies implements Serializable {
+    public Candies() {
+
+    }
+
+    // public Candies(UserStats user, int pokemon_family) {
+    //     this.user = user;
+    //     this.pokemon_family = pokemon_family;
+    // }
+
+    public Candies(int user, int pokemon_family, int count) {
+        this.user = user;
+        this.pokemon_family = pokemon_family;
+        this.candy = count;
+    }
 
     @Id
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "owner_id")
+    // @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "owner_id")
     @Setter @Getter
-    private UserStats user;
- 	
+    private int user;
+
     @Id
     @Getter @Setter
     @Column(name = "pokemon_family")
@@ -26,4 +39,10 @@ public class Candies implements Serializable
     @Getter @Setter
     @Column(name = "candy")
     private int candy;
+
+    @Override public boolean equals(Object other) {
+        Candies casted = (Candies) other;
+        //Might need to add owner id, but not at this moment.
+        return other instanceof Candies && this.pokemon_family == casted.pokemon_family;
+    }
 }
