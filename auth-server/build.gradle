@@ -63,6 +63,8 @@ dependencies {
 	compile 'net.sourceforge.nekohtml:nekohtml:1.9.21'
 	compile("org.springframework.boot:spring-boot-devtools")
 	compileOnly "org.projectlombok:lombok:1.16.10"
+    compile("org.springframework.boot:spring-boot-starter-websocket")
+    compile("org.springframework:spring-messaging")	
 }
 
 task wrapper(type: Wrapper) {

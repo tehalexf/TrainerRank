@@ -68,6 +68,7 @@ public class TrainerRankController {
 
 
 	private String tryLogin(PokemonGo go, ModelAndView mav) throws LoginFailedException, InterruptedException {
+		System.out.println(usr.findSummedPoints().getRed());
 		String authUsername;
 		PlayerProfile playerProfile = null;
 		PlayerData playerData = null;
@@ -403,6 +404,15 @@ public class TrainerRankController {
 	// 	return r;
 	// }
 
+
+	
+	@RequestMapping(value = "/sockettest", method = RequestMethod.GET)
+	public ModelAndView sockettest() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("sockettest");
+		return model;
+
+	}
 
 
 	//for 403 access denied page
